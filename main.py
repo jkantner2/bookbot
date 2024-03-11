@@ -4,10 +4,10 @@ def main():
     number_of_words = word_count(text)
     count = letter_count(text)
     book_report = report(count)
-    sorted_report = book_report.sort(key=sort_on, reverse=True)
+    book_report.sort(key=sort_on, reverse=True)
     print(f"--- Begin report of {book_path} ---")
     print(f"{number_of_words} words found in the document")
-    print(book_report)
+    print_info(book_report)
 
 def get_book_text(path):
     with open(path) as f:
@@ -44,5 +44,11 @@ def report(dictionary):
 
 def sort_on(dict):
     return dict["num"]
+
+def print_info(report_list):
+    for item in report_list:
+        letter = item["name"]
+        value = item["num"]
+        print(f"The {letter} character was found {value} times\n")
 
 main()
