@@ -19,7 +19,6 @@ def word_count(text):
 
 def letter_count(text):
     letter_count = {}
-    alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     lower_text = text.lower().split()
     temp = []
     for letter in lower_text:
@@ -27,7 +26,7 @@ def letter_count(text):
     for letter in temp:
         if (letter in letter_count):
             letter_count[letter] += 1
-        elif letter in alphabet:
+        elif letter.isalpha():
             letter_count[letter] = 1
     return letter_count
 
